@@ -40,9 +40,11 @@
 
 
 </br>
+
 >> if same user send request to like the same message again 
 
 </br>
+
 ![Screenshot (79)](https://user-images.githubusercontent.com/72871727/212491774-2b44b838-8df4-4846-b2e8-ba144c7510fa.png)
 
 
@@ -56,6 +58,7 @@
 
 
 <hr>
+
 ### Used PostgreSQL as db
 
 >> SQL for - Message table
