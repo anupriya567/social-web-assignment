@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,13 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6pa=p(ggnd+i@*ihg-&9tjh%j!3bec1ijo8m+zdt!k2z5h&25t'
+IS_PRODUCTION = bool(getenv('IS_PRODUCTION', False))
+APP_HOST = getenv('APP_HOST','127.0.0.1')
+SECRET_KEY = getenv('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
-
+DEBUG = not IS_PRODUCTION
+ALLOWED_HOSTS = [APP_HOST]
 
 # Application definition
 
@@ -84,11 +90,11 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : "socialwebdb",
-        'PORT' : 5432,
-        'HOST' : "localhost",
-        'USER' : "postgres",
-        'PASSWORD' : "Qwerty0987+"
+        'NAME' : getenv("DB_NAME"),
+        'PORT' : getenv("DB_PORT"),
+        'HOST' : getenv("DB_HOST"),
+        'USER' : getenv("DB_USER"),
+        'PASSWORD' : getenv("DB_PASSWORD")
     },
 }
 
