@@ -2,6 +2,12 @@
 
 ## Build a social media application that allows users to post messages and "like" other users' messages. 
 
+### * Database - PostgreSQL
+### * Rest API Development using - Django Rest Framework
+### * building and testing API's - Postman
+</br>
+
+
 ## How to run the api
 
 1. clone this repo 
